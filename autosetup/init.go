@@ -1,18 +1,19 @@
-package wgin
+package autosetup
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/wuchieh/wgin"
 	"github.com/wuchieh/wtype"
 )
 
 func init() {
-	SetErrorHandler(func(c *gin.Context, err error) {
+	wgin.SetErrorHandler(func(c *gin.Context, err error) {
 		c.String(http.StatusOK, err.Error())
 	})
 
-	SetResponseHandler(func(c *gin.Context, a any) {
+	wgin.SetResponseHandler(func(c *gin.Context, a any) {
 		if a == nil {
 			c.String(http.StatusOK, "")
 		} else {
@@ -24,7 +25,7 @@ func init() {
 		}
 	})
 
-	SetBindHandler(func(c *gin.Context, a any) error {
+	wgin.SetBindHandler(func(c *gin.Context, a any) error {
 		err := c.ShouldBind(a)
 		if err != nil {
 			return err
