@@ -52,5 +52,5 @@ func helloUser(c *wgin.Context[helloUserRequest]) (*string, error) {
 	if err != nil {
 		return nil, err
 	}
-	return pointer.Of(fmt.Sprintf("hello %d", body.Name)), nil
+	return pointer.Of(fmt.Sprintf("hello %s", body.Name)), nil
 }
