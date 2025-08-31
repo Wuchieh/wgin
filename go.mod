@@ -3,6 +3,7 @@ module github.com/wuchieh/wgin
 go 1.25.0
 
 require (
+	github.com/duke-git/lancet/v2 v2.3.7
 	github.com/gin-gonic/gin v1.10.1
 	github.com/wuchieh/wtype v1.6.2
 )
