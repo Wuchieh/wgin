@@ -21,7 +21,7 @@ func (c *Context[T]) GetBody() (*T, error) {
 			}
 			c.body = handler
 		} else if bindHandler != nil {
-			err = bindHandler(c.Context, c.body)
+			err = bindHandler(c.BaseContext, c.body)
 		} else {
 			err = c.ShouldBind(c.body)
 		}
